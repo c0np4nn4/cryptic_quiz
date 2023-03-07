@@ -19,7 +19,7 @@ function Quiz() {
           아래 링크를 클릭하셔서 지원 설문 폼을 작성해주시기 바랍니다. <br />
           <br />
 
-          {/* <a href="#">link</a> */}
+          <a href="https://forms.gle/Xv4Daw7zGgm9eV2X7">Link</a>
 
           <br />
           수고 많으셨습니다! 👍
