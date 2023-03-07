@@ -1,23 +1,32 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AnswerContainer, AnswerText, Hint, NextBtn, ProblemBox, ProblemDescription, QuizBoard, QuizContainer, QuizDescription, QuizTitle } from './QuizComponents';
+import { AnswerContainer, AnswerText, Hint, HintBtn, NextBtn, ProblemBox, ProblemDescription, QuizBoard, QuizContainer, QuizDescription, QuizTitle } from './QuizComponents';
 
-const Alice = () => {
-  return <mark style={{ backgroundColor: "tomato" }}><strong>Alice</strong></mark>;
-}
-
-const Bob = () => {
-  return <mark style={{ backgroundColor: "lime" }}><strong>Bob</strong></mark>;
-}
-
-const DH = () => {
-  return <strong><mark>Dffie-Hellman</mark></strong>;
-}
 
 
 function Quiz() {
   let [isPass, setIsPass] = useState(false);
   let [answer, setAnswer] = useState("");
+
+  const Alice = () => {
+    return <mark style={{ backgroundColor: "tomato" }}><strong>Alice</strong></mark>;
+  }
+
+  const Bob = () => {
+    return <mark style={{ backgroundColor: "lime" }}><strong>Bob</strong></mark>;
+  }
+
+  const DH = () => {
+    return <strong><mark>Dffie-Hellman</mark></strong>;
+  }
+
+  const cipherText = () => {
+    return <strong>wEMGAYVGQIQM</strong>;
+  }
+
+  const plainText = () => {
+    return <strong>Cryptography</strong>;
+  }
 
   const navigate = useNavigate();
 
@@ -43,7 +52,7 @@ function Quiz() {
           <br />
 
           <details>
-            <summary>DH</summary>
+            <summary style={{ cursor: "pointer" }}>DH</summary>
             <ProblemBox>
               <ProblemDescription>
                 <br />
@@ -206,7 +215,7 @@ function Quiz() {
 
           <ProblemBox>
             <ProblemDescription>
-              <strong>wEMGAYVGQIQM</strong>
+              {isPass ? plainText() : cipherText()}
             </ProblemDescription>
           </ProblemBox>
 
@@ -223,8 +232,14 @@ function Quiz() {
               navigate('/Finish');
             }
           }} >
-            NEXT
+            다음
           </NextBtn>
+
+          <HintBtn onClick={() => {
+            setIsPass(true);
+          }} >
+            정답 보기
+          </HintBtn>
         </QuizDescription>
       </QuizBoard>
     </QuizContainer >

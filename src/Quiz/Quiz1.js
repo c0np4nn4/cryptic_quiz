@@ -6,7 +6,7 @@ import caesar_cipher from './caesar_cipher.png';
 import {
   ProblemImg, ProblemBox, AnswerContainer,
   AnswerText, Hint, NextBtn,
-  QuizContainer, QuizBoard, QuizTitle, QuizDescription, ProblemDescription
+  QuizContainer, QuizBoard, QuizTitle, QuizDescription, ProblemDescription, HintBtn
 } from './QuizComponents.js';
 
 
@@ -17,12 +17,21 @@ function Quiz() {
 
   const navigate = useNavigate();
 
+  const cipherText = () => {
+    return <div>Chfna Angvbany Havirefvgl</div>;
+  }
+
+  const plainText = () => {
+    return <div>Pusan National University</div>;
+  }
+
   useEffect(() => {
     if (answer === "Pusan National University") {
       setIsPass(true);
     }
 
   }, [answer]);
+
   return (
     <QuizContainer>
       <QuizBoard>
@@ -64,25 +73,31 @@ function Quiz() {
 
           <ProblemBox>
             <ProblemDescription>
-              Chfna Angvbany Havirefvgl
+              {isPass ? plainText() : cipherText()}
             </ProblemDescription>
           </ProblemBox>
 
+
+          <AnswerContainer>
+            <AnswerText placeholder="답을 입력하세요" onChange={(e) => {
+              setAnswer(e.target.value);
+            }} />
+          </AnswerContainer>
+
+          <NextBtn isPass={isPass} onClick={() => {
+            if (isPass) {
+              navigate('/Quiz2');
+            }
+          }} >
+            다음
+          </NextBtn>
+
+          <HintBtn onClick={() => {
+            setIsPass(true);
+          }} >
+            정답 보기
+          </HintBtn>
         </QuizDescription>
-
-        <AnswerContainer>
-          <AnswerText placeholder="답을 입력하세요" onChange={(e) => {
-            setAnswer(e.target.value);
-          }} />
-        </AnswerContainer>
-
-        <NextBtn isPass={isPass} onClick={() => {
-          if (isPass) {
-            navigate('/Quiz2');
-          }
-        }} >
-          NEXT
-        </NextBtn>
       </QuizBoard>
 
     </QuizContainer >

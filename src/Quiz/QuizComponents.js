@@ -6,6 +6,10 @@ const QuizContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+
+  @media screen and (max-width: 450px) {
+
+  }
 `;
 
 const QuizBoard = styled.div`
@@ -19,15 +23,33 @@ const QuizBoard = styled.div`
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   background-color: #f9f9f9;
+
+  @media screen and (max-width: 450px) {
+    width: 225px;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const QuizTitle = styled.h1`
   font-size: 2rem;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const QuizDescription = styled.div`
   margin-bottom: 30px;
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    font-size: 0.6rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const NextBtn = styled.button`
@@ -35,8 +57,10 @@ const NextBtn = styled.button`
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   cursor: normal;
+
+  width: 150px;
 
   ${(props) =>
     props.isPass &&
@@ -52,10 +76,41 @@ const NextBtn = styled.button`
   };
 `;
 
+const HintBtn = styled.button`
+  background-color: #003008;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: normal;
+
+  width: 150px;
+
+  ${(props) =>
+    props.isPass &&
+    `
+    background-color: #001c05;
+    disabled: false;
+    cursor: pointer;
+
+    &:hover {
+    background-color: #4b8b3b;
+    }
+    `
+  };
+`;
+
 const AnswerContainer = styled.div`
   display:flex;
   flex-direction: row;
+  margin-top: 30px;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 450px) {
+    width: 80%;
+    font-size: 0.6rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const AnswerBtn = styled.button`
@@ -76,6 +131,14 @@ const AnswerBtn = styled.button`
       border: 1px solid white;
     `
   };
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    font-size: 0.6rem;
+    margin-bottom: 10px;
+
+    padding: 5px 10px;
+  }
 `;
 
 const ProblemBox = styled.div`
@@ -89,6 +152,12 @@ const ProblemBox = styled.div`
   min-width: 450px;
   border: 1px solid grey;
   border-radius: 10px;
+
+  @media screen and (max-width: 450px) {
+    min-width: 100%;
+    font-size: 0.6rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const ProblemDescription = styled.div`
@@ -111,4 +180,4 @@ const Hint = styled.div`
   margin-bottom: 10px;
 `;
 
-export { ProblemDescription, AnswerBtn, ProblemBox, ProblemImg, AnswerText, Hint, QuizContainer, QuizBoard, QuizTitle, QuizDescription, NextBtn, AnswerContainer }
+export { HintBtn, ProblemDescription, AnswerBtn, ProblemBox, ProblemImg, AnswerText, Hint, QuizContainer, QuizBoard, QuizTitle, QuizDescription, NextBtn, AnswerContainer }

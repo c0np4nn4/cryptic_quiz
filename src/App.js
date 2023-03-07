@@ -14,17 +14,15 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <div>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/Quiz1" element={<Quiz1 />} />
-            <Route path="/Quiz2" element={<Quiz2 />} />
-            <Route path="/Quiz3" element={<Quiz3 />} />
-            <Route path="/Finish" element={<Finish />} />
-          </Routes>
-        </Router>
-      </div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route path="/Quiz1" element={<Quiz1 />} />
+          <Route path="/Quiz2" element={<Quiz2 />} />
+          <Route path="/Quiz3" element={<Quiz3 />} />
+          <Route path="/Finish" element={<Finish />} />
+        </Routes>
+      </Router>
     </Wrapper>
   );
 }
