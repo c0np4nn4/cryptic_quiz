@@ -2,10 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 
 import Landing from "./Landing";
-import Quiz1 from "./Quiz/Quiz1";
-import Quiz2 from "./Quiz/Quiz2";
-import Quiz3 from "./Quiz/Quiz3";
-import Finish from "./Quiz/Finish";
+import Ticket1 from "./Ticket/Ticket_6634b9567052a4ee734f0a035a848012";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -17,10 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route path="/Quiz1" element={<Quiz1 />} />
-          <Route path="/Quiz2" element={<Quiz2 />} />
-          <Route path="/Quiz3" element={<Quiz3 />} />
-          <Route path="/Finish" element={<Finish />} />
+          <Route path="/ticket_6634b9567052a4ee734f0a035a848012" element={<Ticket1 />} />
         </Routes>
       </Router>
     </Wrapper>
