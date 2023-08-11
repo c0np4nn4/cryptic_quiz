@@ -1,25 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-
 function IceCold() {
-  let [isPass, setIsPass] = useState(false);
-  let [answer, setAnswer] = useState("");
-
-  const navigate = useNavigate();
-
-  const cipherText = () => {
-    return <div>Chfna Angvbany Havirefvgl</div>;
-  }
-
-  const plainText = () => {
-    return <div>Pusan National University</div>;
-  }
-
-  useEffect(() => {
-
-  });
-
   return (
     <>
       <h1>Ticket Verified!</h1>
