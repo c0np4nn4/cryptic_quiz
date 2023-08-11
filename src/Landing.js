@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from './logo.svg';
 
@@ -33,24 +32,11 @@ const Subheading = styled.h2`
   text-align: center;
 `;
 
-const StartBtn = styled.button`
-  font-size: 24px;
-  font-weight: 400;
-  margin-top: 16px;
-  text-align: center;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const Description = styled.div`
   margin-bottom: 30px;
 `;
 
 function LandingPage() {
-  const navigate = useNavigate();
-
   return (
     <ContainerLanding>
       <Logo src={logo} alt="logo" />
@@ -59,9 +45,6 @@ function LandingPage() {
       <Description>
         Test
       </Description>
-      {/* <StartBtn onClick={() => { navigate('/ticket_6634b9567052a4ee734f0a035a848012') }}> */}
-      {/*   Test */}
-      {/* </StartBtn> */}
     </ContainerLanding>
   );
 }
