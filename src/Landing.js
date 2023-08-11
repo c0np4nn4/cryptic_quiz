@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from './logo.svg';
+import md5 from 'blueimp-md5';
 
 const ContainerLanding = styled.div`
   display: flex;
@@ -44,12 +45,26 @@ const StartBtn = styled.button`
   }
 `;
 
+const SecretInput = styled.input`
+  width: 18rem;
+  text-align: center;
+`;
+
 const Description = styled.div`
   margin-bottom: 30px;
 `;
 
 function LandingPage() {
+  const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    console.log("hash: ", md5(inputValue))
+
+    if (md5(inputValue) === "6634b9567052a4ee734f0a035a848012") {
+      window.location.href = '/ticket_6634b9567052a4ee734f0a035a848012';  // or using history.push('/ticket')
+    }
+  };
 
   return (
     <ContainerLanding>
@@ -59,7 +74,12 @@ function LandingPage() {
       <Description>
         Test
       </Description>
-      <StartBtn onClick={() => { navigate('/ticket_6634b9567052a4ee734f0a035a848012') }}>
+      <SecretInput
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="QR 코드를 찍어서 나오는 값을 입력하세요!"
+      />
+      <StartBtn onClick={handleSubmit}>
         Ticket1
       </StartBtn>
     </ContainerLanding>
